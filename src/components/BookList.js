@@ -1,44 +1,33 @@
-import React from 'react';
-import Book from './Books';
-import Form from './BooksForm';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Book from "./Book";
+import Form from "./BooksForm";
+import { getAllBooks } from "../redux/books/booksSlice";
 
-class BookList extends React.PureComponent {
-  render() {
-    const state = [
-      {
-        key: 0,
-        title: 'Master stroke',
-        author: 'ABBK',
-      },
-      {
-        key: 1,
-        title: 'Mama mia',
-        author: 'ABBK',
-      },
-      {
-        key: 2,
-        title: 'Bongoland',
-        author: 'Gommy',
-      },
-      {
-        key: 3,
-        title: 'Bad guys',
-        author: 'Gommy',
-      },
-    ];
-    return (
-      <>
-        <ul>
-          {state.map((books) => (
-            <li key={books.key}>
-              {' '}
-              <Book title={books.title} author={books.author} />
-            </li>
-          ))}
-        </ul>
-        <Form />
-      </>
-    );
-  }
+function BookList() {
+  const dispatch = useDispatch();
+  const { books } = useSelector((state) => state.book);
+
+  useEffect(() => {
+    dispatch(getAllBooks());
+  }, [dispatch]);
+
+  return (
+    <div className="book-container">
+      <ul>
+        {books.map((book) => (
+          <Book
+            key={book.Id}
+            Id={book.Id}
+            Title={book.title}
+            Author={book.author}
+            Category={book.category}
+          />
+        ))}
+      </ul>
+      <Form />
+    </div>
+  );
 }
+
 export default BookList;
