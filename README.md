@@ -75,8 +75,8 @@ To run the project, execute the following command:
 
 👤 **King Immanuel**
 
-- GitHub: [@githubhandle](https://github.com/kingno3l)
-- LinkedIn: [LinkedIn](linkedin.com/in/kingno3l)
+- GitHub: [King Immanuel](https://github.com/kingno3l)
+- LinkedIn: [King Immanuel](https://www.linkedin.com/in/kingno3l)
 
 
 ## 🔭 Future Features <a name="future-features"></a>
